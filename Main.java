@@ -83,7 +83,7 @@ public class Main extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Account Number:");
 		lblNewLabel.setFont(new Font("Serif", Font.PLAIN, 25));
-		lblNewLabel.setBounds(95, 83, 190, 40);
+		lblNewLabel.setBounds(95, 84, 190, 40);
 		login.add(lblNewLabel);
 		
 		JLabel lblPassword = new JLabel("Password:");
@@ -190,9 +190,9 @@ public class Main extends JFrame {
 		checkBalance.add(textArea_2);
 		
 		final JTextArea textArea_3 = new JTextArea();
-	    textArea_3.setBounds(42, 38, 484, 60);
-	    textArea_3.setText("Your current balance is $" + balance + ".\nPlease enter the account number you want to transfer to and \nthe amount you would like to transfer:");
-	    transfer.add(textArea_3);
+		textArea_3.setBounds(42, 38, 484, 60);
+		textArea_3.setText("Your current balance is $" + balance + ".\nPlease enter the account number you want to transfer to and \nthe amount you would like to transfer:");
+		transfer.add(textArea_3);
 		
 		//deposit
 		JButton btnNewButton_7 = new JButton("Deposit");
@@ -283,35 +283,35 @@ public class Main extends JFrame {
 		checkBalance.add(btnNewButton_8);
 		
 		//transfer
-        final JTextField textField_3 = new JTextField();
-        textField_3.setBounds(325, 122, 132, 42);
-        transfer.add(textField_3);
-        textField_3.setColumns(10);
-        
-        final JTextField textField_4 = new JTextField();
-        textField_4.setBounds(325, 187, 132, 42);
-        transfer.add(textField_4);
-        textField_4.setColumns(10);
-        
-        JLabel label1 = new JLabel("Account Number:");
-        label1.setFont(new Font("Serif", Font.PLAIN, 20));
-        label1.setBounds(155, 120, 160, 38);
-        transfer.add(label1);
-        
-        JLabel label2 = new JLabel("Amount:");
-        label2.setFont(new Font("Serif", Font.PLAIN, 20));
-        label2.setBounds(225, 185, 90, 38);
-        transfer.add(label2);
-   
-        JButton btnTransfer = new JButton("Transfer");
-        btnTransfer.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		try
-        		{
-	        		char cont = 'y';
-	        		String TransferAmmount = textField_4.getText();
-	        		int ammount = Integer.parseInt(TransferAmmount);
-	        		if (ammount > balance)
+		final JTextField textField_3 = new JTextField();
+		textField_3.setBounds(325, 122, 132, 42);
+		transfer.add(textField_3);
+		textField_3.setColumns(10);
+		        
+		final JTextField textField_4 = new JTextField();
+		textField_4.setBounds(325, 187, 132, 42);
+		transfer.add(textField_4);
+		textField_4.setColumns(10);
+		        
+		JLabel label1 = new JLabel("Account Number:");
+		label1.setFont(new Font("Serif", Font.PLAIN, 20));
+		label1.setBounds(155, 120, 160, 38);
+		transfer.add(label1);
+		        
+		JLabel label2 = new JLabel("Amount:");
+		label2.setFont(new Font("Serif", Font.PLAIN, 20));
+		label2.setBounds(225, 185, 90, 38);
+		transfer.add(label2);
+		
+		JButton btnTransfer = new JButton("Transfer");
+		btnTransfer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try
+				{
+					char cont = 'y';
+					String TransferAmmount = textField_4.getText();
+					int ammount = Integer.parseInt(TransferAmmount);
+					if (ammount > balance)
 					{
 						cont = 'n';
 						JOptionPane.showMessageDialog(null, "Ammount entered exceeds balance!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -322,12 +322,12 @@ public class Main extends JFrame {
 						textField_3.setText("");
 						textField_4.setText("");
 						JOptionPane.showMessageDialog(null, "The money has been transferred!");
-		        		textArea.setText("Your current balance is $" + balance + ".\nPlease enter the amount you would like to deposit:");
+						textArea.setText("Your current balance is $" + balance + ".\nPlease enter the amount you would like to deposit:");
 						textArea_1.setText("Your current balance is $" + balance + ".\nPlease enter the amount you would like to withdraw:");
 						textArea_2.setText("Your current balance is $" + balance + ".");
 						textArea_3.setText("Your current balance is $" + balance + ".\nPlease enter the account number you want to transfer to and \nthe amount you would like to transfer:");
-		        		CardLayout cardLayout = (CardLayout) contentPane.getLayout();
-		        		cardLayout.show(contentPane, "name_38818916861170");
+						CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+						cardLayout.show(contentPane, "name_38818916861170");
 					}
 					else
 					{
@@ -335,14 +335,14 @@ public class Main extends JFrame {
 						CardLayout cardLayout = (CardLayout) contentPane.getLayout();
 						cardLayout.show(contentPane, "name_45285226859634");
 					}
-        		}
+				}
 				catch (NumberFormatException e1)
 				{
 					JOptionPane.showMessageDialog(null, "Please enter an integer.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
-        	}
-        });
-        btnTransfer.setBounds(326, 259, 133, 42);
+			}
+		});
+		btnTransfer.setBounds(326, 259, 133, 42);
 		transfer.add(btnTransfer);
 		
 		//password
