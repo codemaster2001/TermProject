@@ -283,6 +283,44 @@ public class Main extends JFrame {
 		//transfer
 		JPanel transfer = new JPanel();
 		contentPane.add(transfer, "name_45285226859634");
+                transfer.setLayout(null);
+                JTextArea textArea3 = new JTextArea();
+		textArea3.setBounds(42, 38, 450, 60);
+		textArea3.setText("Your current balance is $" + balance + ".\nPlease enter the account number you want to transfer to and \nthe amount you would like to transfer:");
+		transfer.add(textArea3);
+                
+                
+                final JTextField textField1 = new JTextField();
+                textField1.setBounds(326, 111, 133, 38);
+                JTextField textField2 = new JTextField();
+                JLabel label1 = new JLabel("Account Number:");
+                label1.setBounds(200, 111, 133, 38);
+                transfer.add(label1);
+                JLabel label2 = new JLabel("Amount:");
+                label2.setBounds(250, 184, 133, 38);
+                transfer.add(label2);
+                transfer.add(textField1);
+                transfer.add(textField2);
+                textField_2 = new JTextField();
+		textField_2.setBounds(326, 184, 133, 38);
+		transfer.add(textField_2);
+		textField_2.setColumns(10);
+                JButton btnTransfer = new JButton("Transfer");
+                btnTransfer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+                            String TransferAmmount = textField1.getText();
+				int ammount = Integer.parseInt(TransferAmmount);
+				balance -= ammount;
+                                JOptionPane.showMessageDialog(null, "The money has been transferred!");
+				CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+				cardLayout.show(contentPane, "name_45285226859634");
+				
+				
+			}
+		});
+		btnTransfer.setBounds(326, 257, 133, 38);
+		transfer.add(btnTransfer);
+                transfer.add(btnNewButton_8);
 		//password
 		JPanel changePassword = new JPanel();
 		contentPane.add(changePassword, "name_45348565015766");
