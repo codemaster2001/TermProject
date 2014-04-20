@@ -348,6 +348,75 @@ public class Main extends JFrame {
 		//password
 		JPanel changePassword = new JPanel();
 		contentPane.add(changePassword, "name_45348565015766");
+		changePassword.setLayout(null);
+        final JTextArea area1 = new JTextArea();
+        area1.setBounds(42, 28, 250, 40);
+        changePassword.add(area1);
+        area1.setText("Change your password by typing in your" + "\n" + "old password and then your new password");
+        
+        JLabel l1 = new JLabel("Old Password: ");
+        l1.setBounds(161, 111, 89, 38);
+        changePassword.add(l1);
+        final JPasswordField p1 =  new JPasswordField();
+        p1.setBounds(250, 111, 150, 38);
+        changePassword.add(p1);
+        JLabel l2 = new JLabel("New Password: ");
+        l2.setBounds(156, 175, 94, 38);
+        changePassword.add(l2);
+        final JPasswordField p2 = new JPasswordField();
+        p2.setBounds(250, 175, 150, 38);
+        changePassword.add(p2);
+        JLabel l3 = new JLabel("Retype New Password: ");
+        l3.setBounds(112, 240, 143, 38);
+        changePassword.add(l3);
+        final JPasswordField p3 = new JPasswordField();
+        p3.setBounds(250, 240, 150, 38);
+        changePassword.add(p3);
+        
+        JButton btnPassword = new JButton("Change");
+        btnPassword.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) 
+        	{
+        		char [] currentPassword = {'s', 'a', 'm', 'p', 'l', 'e', '1', '2', '3'};
+        		char [] oldPassword = p1.getPassword();
+        		char [] newPassword = p2.getPassword();
+        		char [] retype = p3.getPassword();
+        		
+        		if (!Arrays.equals (oldPassword, currentPassword))
+        		{
+        			JOptionPane.showMessageDialog(null, "Old Password is incorrect!", "Error", JOptionPane.ERROR_MESSAGE);
+        			CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+        			cardLayout.show(contentPane, "name_45348565015766");
+        		}
+        		else if (!Arrays.equals(newPassword, retype))
+        		{
+        			JOptionPane.showMessageDialog(null, "Password doesn't match!", "Error",  JOptionPane.ERROR_MESSAGE);
+        			CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+        			cardLayout.show(contentPane, "name_45348565015766");
+        		}
+        		else
+        		{
+        			JOptionPane.showMessageDialog(null, "Password Changed!");
+        			CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+        			cardLayout.show(contentPane, "name_38818916861170");
+        		}
+        	}
+        });
+        btnPassword.setBounds(267, 289, 133, 38);
+        changePassword.add(btnPassword);
+        
+        JButton password = new JButton("Return");
+        password.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+        		cardLayout.show(contentPane, "name_38818916861170");
+
+        	}
+        });
+        password.setBounds(435, 297, 89, 23);
+        changePassword.add(password);               
+        
+		
 		//logout
 		JPanel logout = new JPanel();
 		contentPane.add(logout, "name_45351186925409");
